@@ -1,9 +1,33 @@
-<% @challenges.each do |phase, challenges| %>
-  <h1><%= phase %></h1>
-  <% challenges.each do |challenge| %>
-    <div>
-       <h3><%= challenge.name %></h3>
-       <p><%= challenge.description %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h3>Challenges</h3>
+        <div class="tabbable tabs-left">
+          <ul class="nav nav-tabs">
+            <% @challenges.keys.each do |phase| %>
+            <li><%= link_to phase, "##{phase}", :"data-toggle" => 'tab' %></li>
+            <% end %>
+            </ul>
+          <div class="tab-content">
+            <% @challenges.each do |phase, challenges| %>
+              <div class="tab-pane" id="<%=phase%>">
+                <% challenges.each do |challenge| %>
+                  <h2><%= challenge.name %></h2>
+
+                  <div>
+                    <%= image_tag "http://hdwallsize.com/wp-content/uploads/2013/06/Bunnies-Rabbit-Cute-Wallpaper.jpg" %>
+                    <%= challenge.description %>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
     </div>
-  <% end %>
-<% end %>
+  </div>
+</div>
+
+
+
+
+
