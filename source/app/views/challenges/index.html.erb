@@ -11,14 +11,18 @@
           <div class="tab-content">
             <% @challenges.each do |phase, challenges| %>
               <div class="tab-pane" id="<%=phase%>">
-                <% challenges.each do |challenge| %>
-                  <h2><%= challenge.name %></h2>
+                <ul class="nav nav-tabs nav-stacked">
+                  <% challenges.each do |challenge| %>
+                    <li>
+                      <%= link_to challenge.name, '#' %>
+                      <div class="challenge-content hidden">
+                        <%= image_tag "http://hdwallsize.com/wp-content/uploads/2013/06/Bunnies-Rabbit-Cute-Wallpaper.jpg" %>
+                        <%= challenge.description %>
+                      </div>
+                    </li>
 
-                  <div>
-                    <%= image_tag "http://hdwallsize.com/wp-content/uploads/2013/06/Bunnies-Rabbit-Cute-Wallpaper.jpg" %>
-                    <%= challenge.description %>
-                  </div>
-                <% end %>
+                  <% end %>
+                </ul>
               </div>
             <% end %>
           </div>

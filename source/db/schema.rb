@@ -11,17 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140221003512) do
+ActiveRecord::Schema.define(:version => 20140222010016) do
 
   create_table "challenges", :force => true do |t|
     t.string  "name"
     t.text    "description"
-    t.integer "phase_id"
+    t.integer "unit_id"
     t.string  "level"
   end
 
   create_table "phases", :force => true do |t|
     t.string "name"
+  end
+
+  create_table "units", :force => true do |t|
+    t.string  "number"
+    t.integer "phase_id"
   end
 
 end

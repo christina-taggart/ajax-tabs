@@ -1,3 +1,3 @@
 class Phase < ActiveRecord::Base
-  has_many :challenges
+  has_many :units
 end

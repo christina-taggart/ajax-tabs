@@ -12,6 +12,10 @@
   *zoom: 1;
 }
 
+.hidden {
+  display: none;
+}
+
 .clearfix:before,
 .clearfix:after {
   display: table;
