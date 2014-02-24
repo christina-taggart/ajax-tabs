@@ -1,10 +1,10 @@
 require 'spec_helper'
 describe Challenge do
+  let(:unit) { FactoryGirl.create :unit }
+  let(:unit2) { FactoryGirl.create :unit }
+  let!(:challenge) { FactoryGirl.create :challenge, :unit => unit}
+  let!(:challenge2) { FactoryGirl.create :challenge, :unit => unit2 }
   context ".grouped_by_phase_and_level" do
-    let(:unit) { FactoryGirl.create :unit }
-    let(:unit2) { FactoryGirl.create :unit }
-    let!(:challenge) { FactoryGirl.create :challenge, :unit => unit}
-    let!(:challenge2) { FactoryGirl.create :challenge, :unit => unit2 }
     it "returns a hash of all challenges grouped by challenge and level" do
       results = {
         "#{challenge.unit.phase.name}-#{challenge.unit.number}" => [challenge],
@@ -12,6 +12,9 @@ describe Challenge do
       }
       expect(Challenge.grouped_by_phase_and_level).to eq(results)
     end
+  end
+  it "#image" do
+    expect(Challenge::IMAGES).to include(challenge.image)
   end
   context "associations" do
     it { should belong_to :unit }
