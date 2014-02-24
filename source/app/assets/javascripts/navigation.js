@@ -1,17 +1,18 @@
 var Navigation = {
   bindEvents: function() {
-    $('.nav-tabs').on('click', 'li a', this.showTab);
-    $('.nav-stacked').on('click', 'li a', this.showContent)
+    $('.nav-tabs.units').on('click', 'li a', this.showTab);
+    $('.nav-tabs.content').on('click', 'li a', this.showContent);
   },
 
   showTab: function() {
+    event.preventDefault();
     $('.tab-pane').removeClass('active');
-    // go read about window location object
-    $(window.location.hash).addClass('active');
+    var contentLink = $(this).data('toggle');
+    $(contentLink).addClass('active');
   },
 
-  showContent: function(e) {
-    e.preventDefault();
+  showContent: function() {
+    event.stopPropagation();
     $(this).siblings('.challenge-content').toggleClass('hidden');
   }
 }

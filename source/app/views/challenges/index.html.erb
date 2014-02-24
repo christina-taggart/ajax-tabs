@@ -3,29 +3,8 @@
     <div class="col-md-6">
       <h3>Challenges</h3>
         <div class="tabbable tabs-left">
-          <ul class="nav nav-tabs">
-            <% @challenges.keys.each do |phase| %>
-            <li><%= link_to phase, "##{phase}", :"data-toggle" => 'tab' %></li>
-            <% end %>
-            </ul>
-          <div class="tab-content">
-            <% @challenges.each do |phase, challenges| %>
-              <div class="tab-pane" id="<%=phase%>">
-                <ul class="nav nav-tabs nav-stacked">
-                  <% challenges.each do |challenge| %>
-                    <li>
-                      <%= link_to challenge.name, '#' %>
-                      <div class="challenge-content hidden">
-                        <%= image_tag "http://hdwallsize.com/wp-content/uploads/2013/06/Bunnies-Rabbit-Cute-Wallpaper.jpg" %>
-                        <%= challenge.description %>
-                      </div>
-                    </li>
-
-                  <% end %>
-                </ul>
-              </div>
-            <% end %>
-          </div>
+          <%= render 'phase_units', :challenges => @challenges %>
+          <%= render 'challenges', :challenges => @challenges %>
         </div>
     </div>
   </div>
