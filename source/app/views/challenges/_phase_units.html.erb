@@ -1,7 +1,7 @@
 <ul class="nav nav-tabs units">
   <% @phases.each do |phase| %>
     <% phase.units.each do |unit| %>
-      <li><%= link_to "#{phase.name}-#{unit.number}", unit_path(unit), remote: true, class: "unit-link" %></li>
+      <li><%= link_to "#{phase.name}-#{unit.number}", unit_path(unit), remote: true, class: "unit-link", data: { url_hash: "#{phase.name}-#{unit.number}" } %></li>
     <% end %>
   <% end %>
 </ul>

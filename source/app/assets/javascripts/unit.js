@@ -6,6 +6,7 @@ var Unit = {
 
   appendUnit: function(event, data) {
     event.preventDefault();
+    document.location.hash = $(this).attr('data-url-hash')
     $('.challenge-area').html(data)
   },
 
