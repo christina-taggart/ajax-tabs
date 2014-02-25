@@ -21,12 +21,13 @@ var Navigation = {
 
 
 function buildChallengeList(data){
+  $('.nav.nav-tabs.nav-stacked.content').empty();
   var allChallengeItems = ""
   $(data).each(function(idx, value){
     var challengeItem = "<li class='challenge-item'><a href='#''>" + value + "</a><div class='challenge-content'></div></li>"
     allChallengeItems += challengeItem
   })
-  $('.nav.nav-tabs.nav-stacked.content').append(allChallengeItems);
+  $('.nav.nav-tabs.nav-stacked.content').html(allChallengeItems);
 }
 
 function phaseUnitToggle(){
