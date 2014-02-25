@@ -14,3 +14,15 @@
 //= require jquery_ujs
 //= require_tree ../../../vendor/assets/javascripts
 //= require_tree .
+
+$(document).ready(function(){
+  $(".phase_link").on("ajax:success", function(e, data, status, xhr){
+    console.log("finished")
+    $(".challenges").html(xhr.responseText)
+  })
+
+  $("body").on("ajax:success", ".challenge_link", function(e, data, status, xhr){
+    console.log("finished")
+    $(".challenges").html(xhr.responseText)
+  })
+})

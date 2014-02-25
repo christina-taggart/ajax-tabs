@@ -12,3 +12,16 @@
  *= require_tree ../../../vendor/assets/stylesheets
  *= require_tree .
  */
+
+.nav-tabs {
+  height: 100%;
+}
+
+.challenges {
+  float: right;
+  width: 85%;
+}
+
+li {
+  list-style: none
+}

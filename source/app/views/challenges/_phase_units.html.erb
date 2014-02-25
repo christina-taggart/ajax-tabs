@@ -1,5 +1,5 @@
 <ul class="nav nav-tabs units">
-  <% @challenges.keys.each do |phase| %>
-  <li><%= link_to phase, "", :"data-toggle" => "##{phase}" %></li>
+  <% @units.each do |phase| %>
+  <li><%= link_to phase.name, unit_path(phase), {:"data-toggle" => "##{phase.name}", :remote => true, :class => "phase_link"} %></li>
   <% end %>
 </ul>
