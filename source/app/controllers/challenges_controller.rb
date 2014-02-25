@@ -1,5 +1,5 @@
 class ChallengesController < ApplicationController
   def index
-    @challenges = Challenge.grouped_by_phase_and_level
+    @phase_units = Unit.all_phase_units
   end
 end

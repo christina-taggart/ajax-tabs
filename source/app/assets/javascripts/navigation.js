@@ -17,6 +17,14 @@ var Navigation = {
   }
 }
 
+function phaseUnitToggle(){
+  $('ul.nav.nav-tabs.units').on('click', 'a', function(e){
+      e.preventDefault();
+      $(this).text("works");
+  })
+}
+
 $(document).ready(function() {
   Navigation.bindEvents();
+  phaseUnitToggle();
 })

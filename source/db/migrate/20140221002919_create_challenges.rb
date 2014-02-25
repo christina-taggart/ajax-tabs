@@ -3,7 +3,7 @@ class CreateChallenges < ActiveRecord::Migration
     create_table :challenges do |t|
       t.string :name
       t.text :description
-      t.references :unit
+      t.belongs_to :unit
       t.string :level
     end
   end
