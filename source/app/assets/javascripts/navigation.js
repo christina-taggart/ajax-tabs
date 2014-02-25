@@ -6,14 +6,25 @@ var Navigation = {
 
   showTab: function() {
     event.preventDefault();
-    $('.tab-pane').removeClass('active');
-    var contentLink = $(this).data('toggle');
-    $(contentLink).addClass('active');
+    $('.tab-content').remove();
+    Navigation.loadChallenges(this);
   },
 
   showContent: function() {
     event.stopPropagation();
     $(this).siblings('.challenge-content').toggleClass('hidden');
+  },
+
+
+  loadChallenges: function(target) {
+    key_thing = $(target).data('toggle').substr(1)
+    $.get("/challenges/"+key_thing)
+      .done( function(data) {
+        $new_challenges = $(data)
+        $new_challenges.find('.tab-pane').addClass('active')
+        $('.tabbable').append($new_challenges)
+        $('.nav-tabs.content').on('click', 'li a', Navigation.showContent);
+      })
   }
 }
 

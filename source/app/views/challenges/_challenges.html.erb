@@ -1,11 +1,9 @@
 <div class="tab-content">
-  <% challenges.each do |phase, challenges| %>
-    <div class="tab-pane" id="<%=phase%>">
+    <div class="tab-pane" id="<%= "#{challenges.first.unit.phase.name}-#{challenges.first.unit.number}" %>">
       <ul class="nav nav-tabs nav-stacked content">
         <% challenges.each do |challenge| %>
           <%= render 'challenge_content', :challenge => challenge %>
         <% end %>
       </ul>
     </div>
-  <% end %>
 </div>
