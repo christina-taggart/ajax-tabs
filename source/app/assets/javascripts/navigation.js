@@ -17,14 +17,38 @@ var Navigation = {
   }
 }
 
+function buildChallengeItemContent(data) {
+  var challengeImage = data[0];
+  var challengeDescription = data[1];
+  var challengeID = data[2];
+  var challengeContentItem = "<li><div class='challenge-content'><img src=" + challengeImage + ">" + challengeDescription + "</div></li>"
+  $("a[href=" + "'" + challengeID + "'" + "]").next().html(challengeContentItem);
+}
+
+function challengeItemContentToggle() {
+  $('.nav.nav-tabs.nav-stacked.content').on('click', 'a', function(e) {
+    e.preventDefault();
+    var challengeID = $(this).attr('href')
+    $.ajax({
+      type: "get",
+      url: "/challenge/" + challengeID + "/content"
+    }).done(function(data) {
+      buildChallengeItemContent(data);
+    }).fail(function() {
+      console.log("fail")
+    });
+  });
 
 
+}
 
 function buildChallengeList(data){
   $('.nav.nav-tabs.nav-stacked.content').empty();
   var allChallengeItems = ""
   $(data).each(function(idx, value){
-    var challengeItem = "<li class='challenge-item'><a href='#''>" + value + "</a><div class='challenge-content'></div></li>"
+    var challengeName = value[0];
+    var challengeID = value[1]
+    var challengeItem = "<li class='challenge-item'><a href=" + challengeID + ">" + challengeName + "</a><div class='challenge-content'></div></li>"
     allChallengeItems += challengeItem
   })
   $('.nav.nav-tabs.nav-stacked.content').html(allChallengeItems);
@@ -48,6 +72,7 @@ function phaseUnitToggle(){
 $(document).ready(function() {
   Navigation.bindEvents();
   phaseUnitToggle();
+  challengeItemContentToggle();
 })
 
 
