@@ -17,8 +17,16 @@ var Navigation = {
   }
 }
 
+
+
+
 function buildChallengeList(data){
-  $('nav nav-tabs units').append("<p>HELLO</p>")
+  var allChallengeItems = ""
+  $(data).each(function(idx, value){
+    var challengeItem = "<li class='challenge-item'><a href='#''>" + value + "</a><div class='challenge-content'></div></li>"
+    allChallengeItems += challengeItem
+  })
+  $('.nav.nav-tabs.nav-stacked.content').append(allChallengeItems);
 }
 
 function phaseUnitToggle(){
