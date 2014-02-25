@@ -1,8 +1,26 @@
 <ul class="nav nav-tabs units">
-  <% @phase_units.each do |phase_unit_string| %>
-    <li><%= link_to phase_unit_string, "www.google.com"  %></li>
+  <% @phase_units.each_with_index do |phase_unit_string, idx| %>
+    <li><%= link_to phase_unit_string, "/", data: {unit_id: @phase_unit_ids[idx]} %></li>
   <% end %>
 </ul>
+<!-- challenges should be pasted starting here -->
+<div class="tab-content">
+  <div class="tab-pane" id="1">
+    <ul class="nav nav-tabs nav-stacked content">
+      <li><a href="#">Challenge Name</a>
+        <div class="challenge-content hidden">
+          <!-- image -->
+          <!-- description -->
+        </div>
+      </li>
 
-<!-- , "", :"data-toggle" => "##{phase}"  -->
-<!-- render(:partial => "challenges") -->
+      <li><a href="#">Challenge Name 2</a>
+        <div class="challenge-content hidden">
+          <!-- image -->
+          <!-- description -->
+        </div>
+      </li>
+
+    </ul>
+  </div>
+</div>

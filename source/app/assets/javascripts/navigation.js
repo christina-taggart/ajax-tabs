@@ -17,14 +17,32 @@ var Navigation = {
   }
 }
 
+function buildChallengeList(data){
+  $('nav nav-tabs units').append("<p>HELLO</p>")
+}
+
 function phaseUnitToggle(){
   $('ul.nav.nav-tabs.units').on('click', 'a', function(e){
       e.preventDefault();
-      $(this).text("works");
-  })
+      var unitID = $(this).attr('data-unit-id');
+        $.ajax({
+        type: "get",
+        url: "/unit/" + unitID + "/challenges"
+      }).done(function(data) {
+        buildChallengeList(data);
+      }).fail(function() {
+        console.log("fail")
+      });
+  });
 }
 
 $(document).ready(function() {
   Navigation.bindEvents();
   phaseUnitToggle();
 })
+
+
+// we now have the unit id of the phase-unit the user clicked on
+// we should send an ajax request to the challenges_controller (we need to build an action there)
+// we want to render the challenges partial for that unit (all challenges for unit #7 for example)
+// using the unit id, the controller can query Active Record and send the partial the correct info
