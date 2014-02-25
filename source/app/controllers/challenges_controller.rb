@@ -5,8 +5,11 @@ class ChallengesController < ApplicationController
   end
 
   def show
-    p "shown"
     @challenge = Challenge.find(params[:id])
-    render :show, :layout => false
+    if request.xhr?
+      render :show, :layout => false
+    else
+
+    end
   end
 end

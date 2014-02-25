@@ -17,12 +17,17 @@
 
 $(document).ready(function(){
   $(".phase_link").on("ajax:success", function(e, data, status, xhr){
-    console.log("finished")
+    console.log(data)
     $(".challenges").html(xhr.responseText)
+
+    location.hash = "units/" + $(".tab-pane").attr("id")
+    location.hash = window.location.hash.replace("#", "")
+
   })
 
   $("body").on("ajax:success", ".challenge_link", function(e, data, status, xhr){
-    console.log("finished")
+    console.log(data)
     $(".challenges").html(xhr.responseText)
+    location.hash = "units/" + document.location.href.split("/")[4] + "/challenges/" + $(".challenge-content").attr("id")
   })
 })

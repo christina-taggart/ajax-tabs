@@ -1,5 +1,7 @@
 TabsChallenge::Application.routes.draw do
   root :to => 'challenges#index'
-  resources :challenges
-  resources :units
+
+  resources :units do
+    resources :challenges
+  end
 end

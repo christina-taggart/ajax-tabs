@@ -1,9 +1,9 @@
 <div class="">
 
-    <div class="tab-pane" id="<%= @challenges.first.unit.phase.name%>">
+    <div class="tab-pane" id="<%= @challenges.first.unit.id %>">
       <ul class="nav nav-tabs nav-stacked content">
         <% @challenges.each do |challenge| %>
-          <li><%= link_to challenge.name, challenge_path(challenge), {:"data-toggle" => "##{challenge.name}",:remote => true, :class => "challenge_link"} %></li>
+          <li><%= link_to challenge.name, unit_challenge_path(challenge.unit challenge), {:"data-toggle" => "##{challenge.name}",:remote => true, :class => "challenge_link"} %></li>
         <% end %>
       </ul>
     </div>
