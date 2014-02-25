@@ -1,7 +1,7 @@
 var Navigation = {
   bindEvents: function() {
-    $('.nav-tabs.units').on('click', 'li a', this.showTab);
-    $('.nav-tabs.content').on('click', 'li a', this.showContent);
+    // $('.nav-tabs.units').on('click', 'li a', this.showTab);
+    $('.tabbable').on('click', '.content-toggle', this.showContent);
   },
 
   showTab: function() {
@@ -12,7 +12,6 @@ var Navigation = {
   },
 
   showContent: function() {
-    event.stopPropagation();
     $(this).siblings('.challenge-content').toggleClass('hidden');
   }
 }

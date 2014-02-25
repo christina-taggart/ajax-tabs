@@ -1,7 +1,5 @@
-<li>
-  <%= link_to challenge.name, '#' %>
-  <div class="challenge-content hidden">
-    <%= image_tag challenge.image %>
-    <%= challenge.description %>
-  </div>
-</li>
+<%= link_to challenge.name, '#', class: 'content-toggle' %>
+ <div class="challenge-content">
+  <%= image_tag challenge.image %>
+  <%= challenge.description %>
+</div>

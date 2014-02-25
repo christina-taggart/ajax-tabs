@@ -1,5 +1,10 @@
 class ChallengesController < ApplicationController
   def index
-    @challenges = Challenge.grouped_by_phase_and_level
+    @phases = Phase.all
+  end
+
+  def show
+    challenge = Challenge.find(params[:id])
+    render partial: 'challenge_content', locals: { challenge: challenge }
   end
 end
