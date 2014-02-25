@@ -3,8 +3,8 @@ FactoryGirl.define do
     name { Faker::Lorem.word }
   end
   factory :unit do
-    number { rand(1..5).to_s }
     phase
+    sequence(:number){ |n| "#{phase.id}.#{((n-1)%10)}" }
   end
   factory :challenge do
     name { Faker::Lorem.word }
