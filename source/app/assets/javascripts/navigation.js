@@ -1,6 +1,6 @@
 var Navigation = {
   bindEvents: function() {
-    $('.nav-tabs.units').on('click', 'li a', this.showTab);
+    $('.nav-tabs.units').on('click', 'li a', function() {});
     $('.nav-tabs.content').on('click', 'li a', this.showContent);
   },
 
